@@ -23,6 +23,7 @@ var (
 )
 
 var CSRFFilter = func(c *revel.Controller, fc []revel.Filter) {
+	c.Response.Out.Header().Set("Vary", "Cookie")
 	r := c.Request.Request
 
 	// OWASP; General Recommendation: Synchronizer Token Pattern.
